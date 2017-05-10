@@ -1,0 +1,30 @@
+<nav class="navbar"  [ngClass]="{'open': isOpen}">
+        <span class="navbar__arrow" (click)="onSidebarOpen()"></span>
+
+        <form class="navbar__search">
+          <input type="search" class="navbar__search__input" name="search"
+           [(ngModel)]="searchValue"
+           (blur)="onBlur()"
+           (ngModelChange)="onSearchValueChange($event)" />
+          <i class="fa fa-search"></i>
+         </form>
+  
+          <input id=menu type="checkbox"/>
+            <span class="line"></span>
+            <label for="menu">
+              <span class="line-1"></span>
+              <span class="line-2"></span>
+              <span class="line-3"></span>
+            </label>
+            <ul class="navbar__menu">
+              <li>
+                <a href="">new chat</a>
+              </li>
+              <li>
+                <a href="">chat item1</a>
+              </li>
+              <li>
+                <a href="">chat item2</a>
+              </li>
+            </ul>
+    </nav>

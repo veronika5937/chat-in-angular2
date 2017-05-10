@@ -1,0 +1,64 @@
+.messages-list{
+    display: flex;
+    flex-direction: column;
+    min-height: 75vh;
+    padding: 1rem 1.5rem;
+}
+
+.messages-list__item{
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 30px;
+}
+
+.messages-list__item__content{
+  position: relative;
+  max-width: 55%;
+  padding: 1rem;
+  margin: 0 1rem;
+  border-radius: 10px;
+}
+
+.messages-list__item__content time,
+.messages-list__item__content span{
+    position: absolute;
+    right: -5px;
+    bottom: -1.2rem;
+    min-width: 75px;
+    font-size: 0.7rem;
+    color: #CACAF5;
+}
+
+.messages-list__item__content span{
+    bottom: -2rem;
+}
+
+/*incoming messages*/
+
+.incoming .messages-list__item__content{
+    background-color: #989AD7;
+    color: #fff;
+}
+
+/* Outgoing messages*/
+.outgoing{
+  flex-direction: row-reverse;
+  align-self: flex-end;
+}
+ 
+.outgoing .messages-list__item__content{
+    background-color:#F1F1FB;
+    color: #919196;
+}
+
+.outgoing time,
+.outgoing span{
+    left: 0;
+}
+
+.avatar{
+  min-width: 75px;
+  height: 75px;
+  border-radius:50%;
+  background: #888 url("../../../assets/images/user.png") no-repeat center/cover;
+}

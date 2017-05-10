@@ -1,0 +1,7 @@
+<aside class="sidebar" [ngClass]="{'open': isSidebarOpen}">
+  <ct-chat-nav  (isSidebarOpen)="onSidebarOpen($event)"></ct-chat-nav>
+  <ct-chat-list [isSidebarOpen]="isSidebarOpen"></ct-chat-list>
+</aside>
+<main class="chat-detail">
+  <ct-chat-detail></ct-chat-detail>
+</main>

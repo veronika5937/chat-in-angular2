@@ -1,0 +1,71 @@
+.chat-list__item{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+}
+
+.chat-list__item:hover{
+    background: rgba(255,255,255,0.2);
+}
+
+.selected:hover{
+    background: #F23F79;
+}
+
+.avatar{
+  min-width: 75px;
+  height: 75px;
+  border-radius:50%;
+  background: #888 url("../../../assets/images/user.png") no-repeat center/cover;
+}
+   
+.chat-list__item time{
+    display: none;
+    align-self: center;
+    padding: 2px 15px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    color: rgba(255,255,255,0.5);
+}
+ 
+.chat-list__item__content{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 60%;
+    max-width: 80%;
+    padding: 0 1rem;
+}
+
+.chat-list__item__content h4{
+    font-weight: normal;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.chat-list__item__content p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(255,255,255,0.5);
+}
+
+/*---Selected list item-----*/
+.selected{
+    background: #F23F79;
+}
+
+.selected time{
+    background: #fff;
+    color: #F23F79;
+}
+
+/*----Open Sidebar-----*/
+
+.open .chat-list__item__content{
+    display: flex;
+}
+
+.open time{
+    display: inline-block;
+}

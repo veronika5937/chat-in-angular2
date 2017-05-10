@@ -1,0 +1,76 @@
+<form class="auth-form" [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit(registerForm.value)">
+
+  <!-- Name input -->
+  <label for="user-name">Full name
+        <i class="fa fa-user"></i>
+    </label>
+  <input type="text" name="name" placeholder="Name" id="user-name" formControlName="name">
+
+  <!-- Name input VALIDATION -->
+  <div class="error" *ngIf=" registerForm.controls['name'].touched 
+        &&  registerForm.controls['name'].hasError('required')">
+    Name is required
+  </div>
+  <div class="error" *ngIf=" registerForm.controls['name'].touched 
+        &&  registerForm.controls['name'].hasError('minlength')">
+    Minimum of 3 characters
+  </div>
+
+  <!-- Email input -->
+  <label for="user-email">Email
+        <i class="fa fa-envelope"></i>
+    </label>
+  <input type="email" name="email" placeholder="Email" id="user-email" formControlName="email">
+
+  <!-- Email input VALIDATION -->
+  <div class="error" *ngIf=" registerForm.controls['email'].touched 
+        &&  registerForm.controls['email'].hasError('required')">
+    Email is required
+  </div>
+  <div class="error" *ngIf=" registerForm.controls['email'].dirty 
+        &&  registerForm.controls['email'].hasError('emailInvalid')">
+    Email is invalid
+  </div>
+
+
+  <!-- Password input -->
+  <label for="user-password">Password
+        <i class="fa fa-key"></i>
+    </label>
+  <input type="password" placeholder="Password" id="user-password" formControlName="password">
+
+  <!-- Password input VALIDATION -->
+  <div class="error" *ngIf=" registerForm.controls['password'].touched 
+        &&  registerForm.controls['password'].hasError('required')">
+    Password is required
+  </div>
+
+  <div class="error" *ngIf=" registerForm.controls['password'].dirty
+        &&  registerForm.controls['password'].hasError('minlength')">
+    Minimum of 6 characters
+  </div>
+
+  <div class="error" *ngIf=" registerForm.controls['password'].dirty
+        &&  registerForm.controls['password'].invalid">
+    It should be combination of digits and letters
+  </div>
+
+
+  <!-- Confirm input-->
+  <label for="user-confirm-password">Confirm password
+        <i class="fa fa-key"></i>
+    </label>
+  <input type="password" placeholder="Confirm password" id="user-confirm-password" formControlName="passwordConfirm">
+
+  <!-- Confirm VALIDATION -->
+  <div class="error" *ngIf=" registerForm.controls['passwordConfirm'].touched 
+        &&  registerForm.controls['passwordConfirm'].hasError('required')">
+    Password confirm is required
+  </div>
+  <div class="error" *ngIf=" registerForm.controls['passwordConfirm'].touched 
+        &&  registerForm.controls['passwordConfirm'].hasError('notEquivalent')">
+    Passwords do not match
+  </div>
+
+  <button type="submit" class="form-btn" [disabled]="registerForm.invalid">Sign up</button>
+</form>

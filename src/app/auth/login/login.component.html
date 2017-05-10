@@ -1,0 +1,42 @@
+<form class="auth-form" [formGroup]="loginForm" novalidate (ngSubmit)="onSubmit(loginForm.value)">
+    <!-- Name input -->
+    <label for="user-name">Full name
+        <i class="fa fa-user"></i>
+    </label>
+    <input type="text" name="name" placeholder="Name" id="user-name" formControlName="name">
+
+    <!-- Name input VALIDATION -->
+    <div class="error" *ngIf="loginForm.controls['name'].touched 
+        &&  loginForm.controls['name'].hasError('required')">
+        Name is required
+    </div>
+    <div class="error" *ngIf=" loginForm.controls['name'].touched 
+        &&  loginForm.controls['name'].hasError('minlength')">
+        Minimum of 3 characters
+    </div>
+
+    <!-- Password input -->
+    <label for="user-password">Password
+        <i class="fa fa-key"></i>
+    </label>
+    <input type="password" placeholder="Password" id="user-password" formControlName="password">
+
+    <!-- Password input VALIDATION -->
+    <div class="error" *ngIf=" loginForm.controls['password'].touched 
+        &&  loginForm.controls['password'].hasError('required')">
+        Password is required
+    </div>
+
+    <div class="error" *ngIf=" loginForm.controls['password'].dirty
+        &&  loginForm.controls['password'].hasError('minlength')">
+        Minimum of 6 characters
+    </div>
+
+    <div class="error" *ngIf=" loginForm.controls['password'].dirty
+        && loginForm.controls['password'].invalid">
+        It should be combination of digits and letters
+    </div>
+
+
+    <button type="submit" class="form-btn" [disabled]="loginForm.invalid">Login</button>
+</form>

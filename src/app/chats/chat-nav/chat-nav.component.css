@@ -1,0 +1,119 @@
+/*----Navigation----*/
+.navbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #3b3e99;
+    padding: 1rem 1.5rem;
+}
+
+.navbar__arrow{
+    width: 15px;
+    height: 15px;
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    transform: rotate(135deg);
+    cursor: pointer;
+}
+
+.navbar__search{
+    display: none;
+    margin: auto;
+    position: relative;
+}
+
+.navbar__search__input{
+    margin: 0 10px;
+    border-radius: 20px;
+    background: #F1F1FB;
+    padding: 10px 10px;
+}
+
+
+.fa.fa-search{
+  position: absolute;
+  right: 13px;
+  top: 3px;  
+  font-size: 1.5rem;
+  color: #fff;
+}
+    
+
+
+/*---------MENU-------*/
+
+.navbar__menu{
+    display: none;
+}
+.navbar__menu a{
+    padding: 10px 20px;
+    font-weight: bold;
+    color: #999;
+}
+.navbar__menu a:hover{
+    color: #333;
+}
+
+#menu:checked ~ .navbar__menu{
+    display: block;
+    padding: 1rem;
+    position: absolute;
+    right: 0;
+    bottom: -80px;
+    background: #F1F1FB;  
+}
+
+/*------HUMBURGER------*/
+
+label[for = menu]{
+  position: relative;
+  width:25px;
+  height: 15px;
+  cursor: pointer;
+}
+
+label[for = menu] span{
+  width: 25px;
+  height: 2px;
+  position: absolute;
+  background: #fff;
+  transition: transform 200ms;
+}
+
+.line-2{
+  top: 6px
+}
+
+.line-3{
+  top: 12px
+}
+
+#menu{
+  display: none;
+}
+
+#menu:checked ~ label .line-2{
+  width: 0;
+}
+
+#menu:checked ~ label .line-1 {
+  transform: rotate(45deg);
+  top: 6px;
+}
+
+#menu:checked ~ label .line-3 {
+  transform: rotate(-45deg);
+  top: 6px;
+}
+
+/*----Open Sidebar-----*/
+
+.open .navbar__search{
+    display: inline-block;
+}
+
+.open .navbar__arrow{
+    transform: rotate(-45deg);
+}

@@ -1,0 +1,9 @@
+<form class="massage-new-form">
+  <div class="massage-new__input-wrap">
+    <input type="text" name="message" #newMessage
+    (keydown.enter)="sendMessage(newMessage)"
+    class="massage-new__input" placeholder="Type something...."/>
+    <i class="fa fa-smile-o"></i>
+  </div>
+  <i class="fa fa-paper-plane" (click)="sendMessage(newMessage)"></i>
+</form>

@@ -1,0 +1,31 @@
+
+.main-nav{
+    display: flex;
+    padding: 1rem 4rem;
+    background: #989AD7;
+    font-weight: bold;
+}
+
+.main-nav a{
+    padding: 0 0.5rem;
+    position: relative;
+    color: #fff;
+    cursor: pointer;
+}
+
+.main-nav .active{
+    text-decoration: underline;
+}
+
+.main-nav a:hover{
+     color: rgba(255, 255, 255, 0.5);
+}
+
+.main-nav a:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+}

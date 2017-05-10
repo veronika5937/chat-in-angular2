@@ -1,0 +1,45 @@
+
+/*----New message input----*/
+
+.massage-new-form{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.5rem;
+  color:#CACAF5;
+  background: #fff;
+}
+
+.massage-new-form .fa{
+    cursor: pointer;
+}
+
+
+.massage-new__input-wrap{
+  width:100%;
+  position: relative;
+  color:#CACAF5;
+}
+
+.massage-new__input{
+  min-width: 85%;
+  padding: 1rem 2rem 1rem 1.2rem;
+  border-radius: 25px;
+  background-color: #F1F1FB;
+}
+
+.massage-new__input::-webkit-input-placeholder {
+  color:#CACAF5;
+}
+
+.fa-smile-o{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.fa-files-o{
+  margin-left: 10px;
+}

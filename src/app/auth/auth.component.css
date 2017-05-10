@@ -1,0 +1,89 @@
+.auth-title{
+    text-align: center;
+    color: #999;
+}
+
+.auth-form-wrap{
+  width: 320px;
+  margin: 5% auto;
+  box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+}
+
+.tabs{
+  display: flex;
+}
+
+.tab-item{
+  width: 50%;
+  padding: 15px 10px;
+  border: 1px solid rgba(0,0,0,.2);
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  background: #989AD7;
+  cursor: pointer;
+}
+.tab-item:hover,
+.tab-item.active{
+    background:#3B3E99;
+}
+
+
+
+.auth-form{
+    display: flex;
+    flex-direction: column; 
+    padding: 1rem;
+}
+
+.auth-form input{
+    width: 95%;
+    display: block;
+    margin: 5px 0;
+    padding: 5px 10px 5px 30px;
+    border-radius: 10px;
+    background: #F1F1FB;
+} 
+
+.auth-form label{
+    display: block;
+    margin-top: 10px;
+    position: relative;
+    color: #777;
+}
+
+
+ 
+/*------BUTTONS-------*/
+.form-btn{
+    position: relative;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color:#fff;
+    box-shadow: 1px 1px 3px rgba(0,0,0,.5);
+    background: #F23F79;
+}
+
+.form-btn:hover{
+    background: #d60e4f;
+}
+
+.form-btn:active{
+    top: 2px;
+    box-shadow: none;
+}
+
+/*----Error message----*/
+.error{
+  font-size: 0.75rem;
+  color: red;
+}
+
+/*--Icons---*/
+.auth-form .fa{
+  position: absolute;
+  bottom: -25px;
+  left: 5px;
+  color: #CACAF5;
+}
