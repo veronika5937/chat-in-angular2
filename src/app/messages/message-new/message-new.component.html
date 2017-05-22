@@ -1,6 +1,8 @@
 <form class="massage-new-form">
   <div class="massage-new__input-wrap">
-    <span class="sub-inf" *ngIf="this.typingUsers.length > 0"> {{typingUsers}} is typing....</span>
+    <span class="sub-inf" *ngIf="this.typingUsers.length > 0"> {{typingUsers}} is typing....
+      <i class="fa fa-pencil"></i>
+    </span>
     <input type="text" name="message" #newMessage
     (keydown.enter)="sendMessage(newMessage)" (keyup)="onChange($event)" 
     class="massage-new__input" placeholder="Type something...."/>

@@ -20,11 +20,12 @@ export class MessageListComponent implements OnInit {
       this.messages.push(message);
     })
     this.messageSocketService.joinUser()
-    .subscribe(user => {
-      this.user = user
-      this.pop();
-    })
-    
+      .subscribe(user => {
+        this.user = user
+        this.join = true;
+        setTimeout(() => this.join = false, 12000)
+      })
+
   }
 
   onSuccess(msg): void {
@@ -35,11 +36,6 @@ export class MessageListComponent implements OnInit {
   onError(err): void {
     console.log(err)
   }
- 
- pop(){
-   this.user.user.username !== this.logedUser ?  this.join = true : this.join = false;
-   console.log(this.user.user.username,  this.logedUser)
-  setTimeout(()=> this.join = false, 12000)
- }
- 
+
+
 }

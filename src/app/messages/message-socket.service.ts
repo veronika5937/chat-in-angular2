@@ -63,19 +63,11 @@ export class MessageSocketService {
     }
 
     typing() {
-        let observable = new Observable(observer => {
-            this.socket.on('typing', user => observer.next(user.username))
-        })
-        return observable
+       return new Observable(observer =>  this.socket.on('typing', user => observer.next(user.username)) )
     }
 
     notTyping(){
-        let observable = new Observable(observer => {
-            this.socket.on('stop typing', user => {
-                observer.next(user.username)
-            })
-        })
-        return observable
+       return new Observable(observer => this.socket.on( 'stop typing', user =>  observer.next(user.username) ) )
     }
 }
 
