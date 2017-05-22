@@ -39,3 +39,37 @@
     width: 40%;
 }
 
+/* ================================= 
+  Media Queries
+==================================== */
+
+@media (max-width: 965px) {
+    .open{
+        min-width: 307px;
+    }
+	
+}
+
+@media (max-width: 700px) {
+    .open{
+        min-width: 307px;
+        height: 100vh;
+        position: absolute;
+        z-index: 1;
+    }
+    .sidebar {
+        width: 100px;
+    }
+
+    .chat-detail {
+        width: 100%;
+    }
+	
+}
+
+@media (min-width: 560px){
+	
+}
+
+
+

@@ -17,6 +17,12 @@ export class UserService {
         localStorage.setItem('user', data.user.username);
     }
 
+    removeUser(): void {
+        this.messageSocketService.disconnect();
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+    }
+
     getUser(): string {
         return localStorage.getItem('token');
     }
@@ -25,8 +31,8 @@ export class UserService {
         return this.getUser() !== null;
     }
 
-    getAllUsers(): Observable<any> {
-        return this.http.get('http://eleksfrontendcamp-mockapitron.rhcloud.com/users')
+   getAllUsers(): Observable<any> {
+        return this.http.get('https://chat93.herokuapp.com/users')
             .map((res: Response) => res.json())
             .catch((err: any) => Observable.throw(err))
     }

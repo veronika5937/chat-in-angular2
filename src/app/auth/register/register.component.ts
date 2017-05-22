@@ -74,18 +74,19 @@ export class RegisterComponent implements OnInit {
     }
 
     this.authService
-    .register(data)
-    .subscribe(this.onRegisterSuccess.bind(this), this.onRegisterError)
+      .register(data)
+      .subscribe(this.onSuccess.bind(this), this.onError)
   }
 
-  private onRegisterSuccess(res: any): void {
-    console.log(res)
-     alert('Registration successful')
-     this.router.navigate(['/login']);
+  private onSuccess(res: any): void {
+    alert('sucsess')
+    this.router.navigate(['/login']);
   }
 
-  private onRegisterError(err: any): void {
-    console.error(err);
+  private onError(err: any): void {
+    if (err) {
+      alert('Username already exists')
+    }
   }
 
 }

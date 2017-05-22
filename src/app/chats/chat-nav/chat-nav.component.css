@@ -117,3 +117,27 @@ label[for = menu] span{
 .open .navbar__arrow{
     transform: rotate(-45deg);
 }
+
+/* ================================= 
+  Media Queries
+==================================== */
+
+ @media (max-width: 700px) {
+    
+        .navbar{
+            padding-left: 0.75rem;
+            padding-right: 0.75rem;
+        }
+        .navbar__arrow{
+            margin-left: auto;
+        }
+        
+        :not(.open) label[for = menu]{
+            display: none;
+        }
+
+        :not(.open) label[for = menu] span{
+            display: none;
+        }
+	
+}

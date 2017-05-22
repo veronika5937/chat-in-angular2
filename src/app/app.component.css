@@ -6,3 +6,33 @@
     height: 100vh;
     overflow: hidden;
 }
+
+/*----Online status------*/
+.offline{
+	position: absolute;
+	top: 10px;
+	width: 100%;
+	padding: 1.5rem;
+	border-radius: 5px;
+	text-align: center;
+	background: #ec8787;
+	color: #fff;
+	z-index: 9;
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slideInDown {
+  animation-name: slideInDown;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
