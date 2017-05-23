@@ -16,9 +16,6 @@ export class MessageSocketService {
         this.socket.on('connect', () => {
             this.socket.emit('authenticate', { token: localStorage['token'] });
         })
-        this.socket.on('leave', msg => console.log(msg));
-        // this.socket.on('typing', user => console.log(user.username))
-        // this.socket.on('stop typing', user => console.log(user.username))
     }
 
     disconnect() {
@@ -48,9 +45,16 @@ export class MessageSocketService {
 
     joinUser() {
         let observable = new Observable(observer =>
-            this.socket.on('join', msg => observer.next(msg))
+            this.socket.on('join', user => observer.next(user.user.username))
         );
         return observable
+    }
+
+    online(){
+       let observable = new Observable(observer =>
+            this.socket.on('online', usernames => observer.next(usernames))
+        );
+        return observable 
     }
 
     // typing events

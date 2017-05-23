@@ -10,8 +10,6 @@ import { MessageSocketService } from '../message-socket.service';
 export class MessageListComponent implements OnInit {
   logedUser: string;
   messages = [];
-  user;
-  join = false;
   constructor(private messageSocketService: MessageSocketService) { }
 
   ngOnInit() {
@@ -19,13 +17,7 @@ export class MessageListComponent implements OnInit {
     this.messageSocketService.getMessages().subscribe(message => {
       this.messages.push(message);
     })
-    this.messageSocketService.joinUser()
-      .subscribe(user => {
-        this.user = user
-        this.join = true;
-        setTimeout(() => this.join = false, 12000)
-      })
-
+      
   }
 
   onSuccess(msg): void {
@@ -34,7 +26,7 @@ export class MessageListComponent implements OnInit {
   }
 
   onError(err): void {
-    console.log(err)
+    console.error(err)
   }
 
 
