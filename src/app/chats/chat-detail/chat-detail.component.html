@@ -1,3 +1,6 @@
 
 <ct-message-list></ct-message-list>
+<div class *ngIf="leaveUser" class="sub-inf">
+    {{leaveUser.user.username}} left chat in {{leaveUser.time | date:"MMM d, H:mm"}}
+</div>
 <ct-message-new></ct-message-new>

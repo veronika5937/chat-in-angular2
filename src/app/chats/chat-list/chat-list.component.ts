@@ -13,8 +13,7 @@ export class ChatListComponent implements OnInit {
   private searchValue: string = 'veronika';
   private subscription: Subscription;
   users;
-  joinedUser;
-  onlineUsers;
+  onlineUsers = [];
 
   @Input() isSidebarOpen: boolean;
 
@@ -23,18 +22,11 @@ export class ChatListComponent implements OnInit {
     private chatService: ChatService) { }
 
   ngOnInit() {
-    this.users = this.userService.getAllUsers()
-
-    if (!this.messageSocketService.socket) {
-      this.messageSocketService.connect();
-    }
-    this.messageSocketService.joinUser()
-      .subscribe(user => {
-        this.popMessage(user);
-      })
-
+    this.users = this.userService.getAllUsers();
+    
+    //user  online status
     this.messageSocketService.online()
-      .subscribe(usernames => {
+      .subscribe((usernames: string[]) => {
         this.onlineUsers = usernames
       })
 
@@ -43,11 +35,6 @@ export class ChatListComponent implements OnInit {
     this.subscription = this.chatService
       .getSearchValue()
       .subscribe(value => this.searchValue = value)
-  }
-
-  popMessage(user) {
-    this.joinedUser = user;
-    setTimeout(() => this.joinedUser = "", 12000)
   }
 
 }

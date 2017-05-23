@@ -50,6 +50,13 @@ export class MessageSocketService {
         return observable
     }
 
+    leaveUser() {
+        let observable = new Observable(observer =>
+            this.socket.on('leave', user => observer.next(user))
+        );
+        return observable
+    }
+
     online(){
        let observable = new Observable(observer =>
             this.socket.on('online', usernames => observer.next(usernames))

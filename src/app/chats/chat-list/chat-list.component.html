@@ -1,11 +1,10 @@
 <ul class="chat-list" [ngClass]="{'open': isSidebarOpen}">
   <li class="chat-list__item" *ngFor="let user of users | async |  fiterByName: searchValue" >
     <div class="avatar"  [ngClass]="{'online': onlineUsers.indexOf(user.username)>=0}"></div>
-    <div class="chat-list__item__content"> {{onlineUsers}}
+    <div class="chat-list__item__content">
       <h4>{{user.username}}</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde ipsum odit ipsam at</p>
     </div>
-    <time></time>
+    <span *ngIf="onlineUsers.indexOf(user.username)>=0">online</span>
+    <span *ngIf="onlineUsers.indexOf(user.username)<0">offline</span>
   </li>
 </ul>
-<div *ngIf="joinedUser" class="pop-up">{{joinedUser}} joined chat</div>

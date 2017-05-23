@@ -19,7 +19,6 @@ constructor() {
     Observable.fromEvent(window, 'online').map(() => true),
     Observable.fromEvent(window, 'offline').map(() => false)
   )
-  console.log(this.online)
 }
   
 }
