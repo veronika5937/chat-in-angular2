@@ -1,8 +1,8 @@
 <img *ngIf="!messages" src="../../../assets/images/loading.gif" alt="loading">
 <ul class="messages-list">
   <li class="messages-list__item" *ngFor="let message of messages"
-  [ngClass]="{'incoming': user === message.user.username,
-  'outgoing': user !== message.user.username}"
+  [ngClass]="{'incoming': logedUser === message.user.username,
+  'outgoing': logedUser !== message.user.username}"
   >
     <div class="avatar"></div>
     <p class="messages-list__item__content">{{message.msg}}

@@ -10,17 +10,23 @@ export class MessageSocketService {
     socket;
     constructor(private http: Http) { }
 
+
     connect() {
-        this.socket = io.connect('http://eleksfrontendcamp-mockapitron.rhcloud.com:8000');
+        this.socket = io.connect('https://chat93.herokuapp.com');
         this.socket.on('connect', () => {
             this.socket.emit('authenticate', { token: localStorage['token'] });
         })
-        this.socket.on('join', msg => console.log(msg));
+    }
+
+    disconnect() {
+        this.socket.disconnect();
     }
 
     getAllMessages() {
-        return this.http.get('http://eleksfrontendcamp-mockapitron.rhcloud.com/messages')
-            .map((res: Response) => res.json())
+        return this.http.get('https://chat93.herokuapp.com/messages')
+            .map((res: Response) => {
+                return res.json()
+            })
     }
 
     sendMessage(msg): void {
@@ -36,7 +42,43 @@ export class MessageSocketService {
         );
         return observable
     }
-        
 
+    joinUser() {
+        let observable = new Observable(observer =>
+            this.socket.on('join', user => observer.next(user.user.username))
+        );
+        return observable
+    }
+
+    leaveUser() {
+        let observable = new Observable(observer =>
+            this.socket.on('leave', user => observer.next(user))
+        );
+        return observable
+    }
+
+    online(){
+       let observable = new Observable(observer =>
+            this.socket.on('online', usernames => observer.next(usernames))
+        );
+        return observable 
+    }
+
+    // typing events
+    isTyping() {
+        this.socket.emit('is typing')
+    }
+
+    stopTyping() {
+        this.socket.emit('stop typing')
+    }
+
+    typing() {
+       return new Observable(observer =>  this.socket.on('typing', user => observer.next(user.username)) )
+    }
+
+    notTyping(){
+       return new Observable(observer => this.socket.on( 'stop typing', user =>  observer.next(user.username) ) )
+    }
 }
 

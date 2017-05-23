@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-// import { Router, RouterLink } from '@angular/router'
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 
 @Component({
@@ -10,7 +11,14 @@ import { Component } from '@angular/core';
 
 
 export class AppComponent {
- 
-  constructor(  ) {}
+online: Observable<boolean>;
+
+constructor() {
+  this.online = Observable.merge(
+    Observable.of(navigator.onLine),
+    Observable.fromEvent(window, 'online').map(() => true),
+    Observable.fromEvent(window, 'offline').map(() => false)
+  )
+}
   
 }

@@ -3,5 +3,6 @@
   <ct-chat-list [isSidebarOpen]="isSidebarOpen"></ct-chat-list>
 </aside>
 <main class="chat-detail">
-  <ct-chat-detail></ct-chat-detail>
+  <ct-chat-detail [leaveUser]="leaveUser"></ct-chat-detail>
+  <div *ngIf="joinedUser" class="pop-up">{{joinedUser}} joined chat</div>
 </main>

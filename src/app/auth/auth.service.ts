@@ -12,25 +12,20 @@ export class AuthService {
     constructor(private http: Http,
         private userService: UserService) { }
 
+        post(url, credentials){
+             const headers: Headers = new Headers({ 'Content-type': 'application/json' });
+             var body = JSON.stringify(credentials);
+             return this.http.post(url, body, { headers: headers })
+        }
 
     login(credentials): Observable<any> {
-        const headers: Headers = new Headers({ 'Content-type': 'application/json' });
-        var body = JSON.stringify(credentials);
-
-        return this.http.post('http://eleksfrontendcamp-mockapitron.rhcloud.com/login',
-        body, { headers: headers })
+        return this.post('https://chat93.herokuapp.com/login', credentials) 
             .map((res: Response) => res.json())
-            .catch((err: any) => Observable.throw(err))
     }
 
 
     register(credentials): Observable<any> {
-        const headers: Headers = new Headers({ 'Content-type': 'application/json' });
-        var body = JSON.stringify(credentials);
-        
-        return this.http.post('http://eleksfrontendcamp-mockapitron.rhcloud.com/signup',
-        body,
-        { headers: headers } )
+        return this.post('https://chat93.herokuapp.com/signup', credentials)
     }
 
 

@@ -53,14 +53,13 @@ export class LoginComponent implements OnInit {
 
   private onLoginSuccess(res: any): void {
     this.userService.setUser(res);
-    this.router.navigate(['chat']);
+    this.router.navigate(['/chat']);
   }
 
   private onLoginError(err: any): void {
     if (err.status === 404) {
       alert('User not found')
     }
-    console.error(err);
   }
 
 }

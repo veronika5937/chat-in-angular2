@@ -8,24 +8,26 @@ import { MessageSocketService } from '../message-socket.service';
   styleUrls: ['./message-list.component.css']
 })
 export class MessageListComponent implements OnInit {
-  user: string;
+  logedUser: string;
   messages = [];
   constructor(private messageSocketService: MessageSocketService) { }
 
   ngOnInit() {
-     this.messageSocketService.getAllMessages().subscribe(this.onSuccess.bind(this), this.onError); 
-     this.messageSocketService.getMessages().subscribe(message => {
-     this.messages.push(message);
+    this.messageSocketService.getAllMessages().subscribe(this.onSuccess.bind(this), this.onError);
+    this.messageSocketService.getMessages().subscribe(message => {
+      this.messages.push(message);
     })
+      
   }
 
   onSuccess(msg): void {
     this.messages = msg.slice(-5);
-    this.user = localStorage.getItem('user');
+    this.logedUser = localStorage.getItem('user');
   }
 
   onError(err): void {
-    console.log(err)
+    console.error(err)
   }
- 
+
+
 }

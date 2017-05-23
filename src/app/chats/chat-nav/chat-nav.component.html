@@ -2,7 +2,7 @@
         <span class="navbar__arrow" (click)="onSidebarOpen()"></span>
 
         <form class="navbar__search">
-          <input type="search" class="navbar__search__input" name="search"
+          <input type="search" class="navbar__search__input" name="search" autocomplete="off"
            [(ngModel)]="searchValue"
            (blur)="onBlur()"
            (ngModelChange)="onSearchValueChange($event)" />
