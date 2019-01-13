@@ -29,3 +29,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 "# new" 
 "# chat" 
 "# chatic" 
+
+https://unicode.org/emoji/charts/full-emoji-list.html#1f37a
+https://github.com/iamcal/js-emoji
